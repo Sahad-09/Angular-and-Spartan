@@ -1,0 +1,14 @@
+<div class="space-x-4 mt-3 ml-3">
+    <button hlmBtn variant="default" size="sm" (click)="clickComponent('Roles')">Roles</button>
+    <button hlmBtn variant="destructive" size="sm" (click)="clickComponent('Designation')">Designation</button>
+</div>
+
+
+
+<div *ngIf="currentComponent == 'Roles'">
+    <app-roles></app-roles>
+</div>
+
+<div *ngIf="currentComponent == 'Designation'">
+    <app-designation></app-designation>
+</div>

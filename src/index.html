@@ -1,13 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>Angular</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Theme Mode Script for Dark/Light Mode -->
+  <script>
+    if (
+      // Check if the user previously selected dark mode
+      localStorage.theme === 'dark' ||
+      // Or if the system prefers dark mode
+      (!('theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      if (document && document.documentElement) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    } else {
+      if (document && document.documentElement) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+  </script>
 </head>
+
 <body>
   <app-root></app-root>
+  <!-- <script type="module" src="./main.ts"></script> -->
 </body>
+
 </html>
