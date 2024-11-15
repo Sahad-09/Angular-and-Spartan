@@ -1,0 +1,56 @@
+<nav class="bg-gray-800 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <div class="flex items-center">
+                <a href="#" class="text-2xl font-bold cursor-pointer">Navbar</a>
+                <div class="hidden md:flex space-x-4 ml-10">
+                    <a routerLink="/" routerLinkActive="text-yellow-300"
+                        class="text-white hover:text-yellow-300 px-3 py-2 rounded-md text-lg font-medium cursor-pointer">
+                        Home
+                    </a>
+                    <a routerLink="/master" routerLinkActive="text-yellow-300"
+                        class="text-white hover:text-yellow-300 px-3 py-2 rounded-md text-lg font-medium cursor-pointer">
+                        Master
+                    </a>
+                    <a [routerLink]="'/employee'" routerLinkActive="text-yellow-300"
+                        class="text-white hover:text-yellow-300 px-3 py-2 rounded-md text-lg font-medium cursor-pointer">
+                        Employee
+                    </a>
+                    <a routerLink="/client" routerLinkActive="text-yellow-300"
+                        class="text-white hover:text-yellow-300 px-3 py-2 rounded-md text-lg font-medium cursor-pointer">
+                        Client
+                    </a>
+                </div>
+            </div>
+            <div class="flex md:hidden">
+                <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none"
+                    (click)="toggleMenu()">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div *ngIf="isMenuOpen" class="md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a routerLink="/" routerLinkActive="text-yellow-300"
+            class="text-white hover:text-yellow-300 block px-3 py-2 rounded-md text-base font-medium cursor-pointer">
+            Home
+        </a>
+        <a routerLink="/master" routerLinkActive="text-yellow-300"
+            class="text-white hover:text-yellow-300 block px-3 py-2 rounded-md text-base font-medium cursor-pointer">
+            Master
+        </a>
+        <a routerLink="/employee" routerLinkActive="text-yellow-300"
+            class="text-white hover:text-yellow-300 block px-3 py-2 rounded-md text-base font-medium cursor-pointer">
+            Employee
+        </a>
+        <a routerLink="/client" routerLinkActive="text-yellow-300"
+            class="text-white hover:text-yellow-300 block px-3 py-2 rounded-md text-base font-medium cursor-pointer">
+            Client
+        </a>
+    </div>
+</nav>

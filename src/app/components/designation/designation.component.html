@@ -1,1 +1,7 @@
-<h1>DESIGNATION COMPONENT</h1>
+<div>
+    @for (item of designationList; track $index){
+    <h2>Index: {{$index}}</h2>
+    <h3>designationId: {{item.designationId}}</h3>
+    <h1>designation: {{item.designation}}</h1>
+    }
+</div>

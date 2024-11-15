@@ -9,6 +9,8 @@ import { HlmCardContentDirective } from "../../libs/ui/ui-card-helm/src/lib/hlm-
 import { HlmCardFooterDirective } from "../../libs/ui/ui-card-helm/src/lib/hlm-card-footer.directive";
 import { RolesComponent } from "../app/components/roles/roles.component"
 import { MasterComponent } from './components/master/master.component';
+import { NavbarComponent } from "./components/navbar/navbar.component"
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +24,9 @@ import { MasterComponent } from './components/master/master.component';
     HlmCardDescriptionDirective,
     HlmCardContentDirective,
     HlmCardFooterDirective,
-    MasterComponent
+    MasterComponent,
+    NavbarComponent,
+    CommonModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
