@@ -1,8 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { MasterComponent } from '../master/master.component';
-import { MasterService } from '../../services/service.service';
+import { MasterService } from '../../services/master.service';
 import { IDesignation } from "../../model/interface/roles"
-import { APIModel } from "../../model/interface/roles"
+import { APIResponseModel } from "../../model/interface/roles"
 
 
 @Component({
@@ -18,7 +18,7 @@ export class DesignationComponent implements OnInit {
   designationList: IDesignation[] = []
 
   ngOnInit() {
-    this.masterService.getDesignation().subscribe((res: APIModel) => {
+    this.masterService.getDesignation().subscribe((res: APIResponseModel) => {
       this.designationList = res.data
     }
     )

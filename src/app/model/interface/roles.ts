@@ -8,8 +8,9 @@ export interface IDesignation {
     designation: String
 }
 
-export interface APIModel {
+export interface APIResponseModel {
     message: String,
     result: boolean,
+    success?: boolean;
     data: any
 }

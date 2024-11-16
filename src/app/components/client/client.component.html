@@ -1,1 +1,151 @@
-<p>client works!</p>
+<div class="flex m-3 gap-4">
+    <!-- Client List Section (70% width) -->
+    <div class="w-full lg:w-7/12">
+        <div class="bg-white shadow-md rounded">
+            <div class="bg-green-600 text-white p-4 rounded-t">
+                Client List
+            </div>
+            <div class="p-4">
+                <table class="min-w-full border border-gray-200">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="px-4 py-2 text-left text-gray-600 font-medium border-b">Sr No</th>
+                            <th class="px-4 py-2 text-left text-gray-600 font-medium border-b">Company Name</th>
+                            <th class="px-4 py-2 text-left text-gray-600 font-medium border-b">Contact Person</th>
+                            <th class="px-4 py-2 text-left text-gray-600 font-medium border-b">Contact No</th>
+                            <th class="px-4 py-2 text-left text-gray-600 font-medium border-b">City</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of clientList; track $index) {
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="px-4 py-2 text-black">{{$index + 1}}</td>
+                            <td class="px-4 py-2 text-black">{{item.companyName}}</td>
+                            <td class="px-4 py-2 text-black">{{item.contactPersonName}}</td>
+                            <td class="px-4 py-2 text-black">{{item.contactNo}}</td>
+                            <td class="px-4 py-2 text-black">{{item.city}}</td>
+                            <td class="px-4 py-2 flex justify-center gap-2">
+                                <button (click)="deleteClient(item.clientId)"
+                                    class="px-3 py-1 bg-red-500 text-white text-sm font-semibold rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300">
+                                    DELETE
+                                </button>
+                                <button (click)="onEdit(item)"
+                                    class="px-3 py-1 bg-gray-500 text-white text-sm font-semibold rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300">
+                                    EDIT
+                                </button>
+                            </td>
+
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Client Section (30% width) -->
+    <div class="w-full lg:w-5/12">
+        <div class="bg-white shadow-md rounded">
+            <div class="bg-green-600 text-white p-4 rounded-t">
+                New Client
+            </div>
+            <div class="p-4">
+                <div class="flex flex-wrap -mx-2">
+                    <!-- Company Name -->
+                    <div class="w-full md:w-1/2 px-2 mb-4">
+                        <label for="companyName" class="block text-gray-700 font-medium mb-2">Company Name</label>
+                        <input type="text" [(ngModel)]="clientObj.companyName" id="companyName"
+                            class="w-full px-4 py-2 border rounded focus:outline-none bg-gray-100 text-black focus:ring-2 focus:ring-green-600"
+                            placeholder="Enter company name" />
+                    </div>
+
+                    <!-- Contact Person Name -->
+                    <div class="w-full md:w-1/2 px-2 mb-4">
+                        <label for="contactPersonName" class="block text-gray-700 font-medium mb-2">Contact
+                            Person</label>
+                        <input type="text" [(ngModel)]="clientObj.contactPersonName" id="contactPersonName"
+                            class="w-full px-4 py-2 border rounded focus:outline-none bg-gray-100 text-black focus:ring-2 focus:ring-green-600"
+                            placeholder="Enter contact person name" />
+                    </div>
+
+                    <!-- Address -->
+                    <div class="w-full md:w-1/2 px-2 mb-4">
+                        <label for="address" class="block text-gray-700 font-medium mb-2">Address</label>
+                        <input type="text" [(ngModel)]="clientObj.address" id="address"
+                            class="w-full px-4 py-2 border rounded focus:outline-none bg-gray-100 text-black focus:ring-2 focus:ring-green-600"
+                            placeholder="Enter address" />
+                    </div>
+
+                    <!-- City -->
+                    <div class="w-full md:w-1/2 px-2 mb-4">
+                        <label for="city" class="block text-gray-700 font-medium mb-2">City</label>
+                        <input type="text" [(ngModel)]="clientObj.city" id="city"
+                            class="w-full px-4 py-2 border rounded focus:outline-none bg-gray-100 text-black focus:ring-2 focus:ring-green-600"
+                            placeholder="Enter city" />
+                    </div>
+
+                    <!-- Pincode -->
+                    <div class="w-full md:w-1/2 px-2 mb-4">
+                        <label for="pincode" class="block text-gray-700 font-medium mb-2">Pincode</label>
+                        <input type="text" [(ngModel)]="clientObj.pincode" id="pincode"
+                            class="w-full px-4 py-2 border rounded focus:outline-none bg-gray-100 text-black focus:ring-2 focus:ring-green-600"
+                            placeholder="Enter pincode" />
+                    </div>
+
+                    <!-- State -->
+                    <div class="w-full md:w-1/2 px-2 mb-4">
+                        <label for="state" class="block text-gray-700 font-medium mb-2">State</label>
+                        <input type="text" [(ngModel)]="clientObj.state" id="state"
+                            class="w-full px-4 py-2 border rounded focus:outline-none bg-gray-100 text-black focus:ring-2 focus:ring-green-600"
+                            placeholder="Enter state" />
+                    </div>
+
+                    <!-- Employee Strength -->
+                    <div class="w-full md:w-1/2 px-2 mb-4">
+                        <label for="employeeStrength" class="block text-gray-700 font-medium mb-2">Employee
+                            Strength</label>
+                        <input type="number" [(ngModel)]="clientObj.employeeStrength" id="employeeStrength"
+                            class="w-full px-4 py-2 border rounded focus:outline-none bg-gray-100 text-black focus:ring-2 focus:ring-green-600"
+                            placeholder="Enter number of employees" />
+                    </div>
+
+                    <!-- GST No -->
+                    <div class="w-full md:w-1/2 px-2 mb-4">
+                        <label for="gstNo" class="block text-gray-700 font-medium mb-2">GST No</label>
+                        <input type="text" [(ngModel)]="clientObj.gstNo" id="gstNo"
+                            class="w-full px-4 py-2 border rounded focus:outline-none bg-gray-100 text-black focus:ring-2 focus:ring-green-600"
+                            placeholder="Enter GST number" />
+                    </div>
+
+                    <!-- Contact Number -->
+                    <div class="w-full md:w-1/2 px-2 mb-4">
+                        <label for="contactNo" class="block text-gray-700 font-medium mb-2">Contact No.</label>
+                        <input type="text" [(ngModel)]="clientObj.contactNo" id="contactNo"
+                            class="w-full px-4 py-2 border rounded focus:outline-none bg-gray-100 text-black focus:ring-2 focus:ring-green-600"
+                            placeholder="Enter contact number" />
+                    </div>
+
+                    <!-- Registration No -->
+                    <div class="w-full md:w-1/2 px-2 mb-4">
+                        <label for="regNo" class="block text-gray-700 font-medium mb-2">Registration No</label>
+                        <input type="text" [(ngModel)]="clientObj.regNo" id="regNo"
+                            class="w-full px-4 py-2 border rounded focus:outline-none bg-gray-100 text-black focus:ring-2 focus:ring-green-600"
+                            placeholder="Enter registration number" />
+                    </div>
+
+                    <!-- Save and Reset Buttons -->
+                    <div class="w-full flex justify-end gap-4 px-2 mb-4">
+                        <button type="button"
+                            class="px-6 py-2 bg-red-500 text-white rounded shadow hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400">
+                            Reset
+                        </button>
+                        <button type="button" (click)="onSaveClient()"
+                            class="px-6 py-2 bg-green-600 text-white rounded shadow hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            {{clientObj.clientId != 0 ? 'Update Client':'Save Client'}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

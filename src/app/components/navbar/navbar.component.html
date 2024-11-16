@@ -4,19 +4,22 @@
             <div class="flex items-center">
                 <a href="#" class="text-2xl font-bold cursor-pointer">Navbar</a>
                 <div class="hidden md:flex space-x-4 ml-10">
-                    <a routerLink="/" routerLinkActive="text-yellow-300"
+                    <a routerLink="/" routerLinkActive="text-yellow-300" [routerLinkActiveOptions]="{ exact: true }"
                         class="text-white hover:text-yellow-300 px-3 py-2 rounded-md text-lg font-medium cursor-pointer">
                         Home
                     </a>
                     <a routerLink="/master" routerLinkActive="text-yellow-300"
+                        [routerLinkActiveOptions]="{ exact: true }"
                         class="text-white hover:text-yellow-300 px-3 py-2 rounded-md text-lg font-medium cursor-pointer">
                         Master
                     </a>
-                    <a [routerLink]="'/employee'" routerLinkActive="text-yellow-300"
+                    <a routerLink="/employee" routerLinkActive="text-yellow-300"
+                        [routerLinkActiveOptions]="{ exact: true }"
                         class="text-white hover:text-yellow-300 px-3 py-2 rounded-md text-lg font-medium cursor-pointer">
                         Employee
                     </a>
                     <a routerLink="/client" routerLinkActive="text-yellow-300"
+                        [routerLinkActiveOptions]="{ exact: true }"
                         class="text-white hover:text-yellow-300 px-3 py-2 rounded-md text-lg font-medium cursor-pointer">
                         Client
                     </a>
@@ -36,19 +39,19 @@
     </div>
     <!-- Mobile Menu -->
     <div *ngIf="isMenuOpen" class="md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <a routerLink="/" routerLinkActive="text-yellow-300"
+        <a routerLink="/" routerLinkActive="text-yellow-300" [routerLinkActiveOptions]="{ exact: true }"
             class="text-white hover:text-yellow-300 block px-3 py-2 rounded-md text-base font-medium cursor-pointer">
             Home
         </a>
-        <a routerLink="/master" routerLinkActive="text-yellow-300"
+        <a routerLink="/master" routerLinkActive="text-yellow-300" [routerLinkActiveOptions]="{ exact: true }"
             class="text-white hover:text-yellow-300 block px-3 py-2 rounded-md text-base font-medium cursor-pointer">
             Master
         </a>
-        <a routerLink="/employee" routerLinkActive="text-yellow-300"
+        <a routerLink="/employee" routerLinkActive="text-yellow-300" [routerLinkActiveOptions]="{ exact: true }"
             class="text-white hover:text-yellow-300 block px-3 py-2 rounded-md text-base font-medium cursor-pointer">
             Employee
         </a>
-        <a routerLink="/client" routerLinkActive="text-yellow-300"
+        <a routerLink="/client" routerLinkActive="text-yellow-300" [routerLinkActiveOptions]="{ exact: true }"
             class="text-white hover:text-yellow-300 block px-3 py-2 rounded-md text-base font-medium cursor-pointer">
             Client
         </a>
